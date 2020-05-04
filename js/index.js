@@ -114,7 +114,7 @@ hello();
 edward.greeting();
 
 //====================================call, apply, bind
-edward.greetingWindow = hello.bind(globalThis);
+//edward.greetingWindow = hello.bind(Window);
 edward.logInfo = function(job, phone) {
   console.group(`${this.name} info`)
   console.log(`Name is ${this.name}`);
@@ -123,7 +123,7 @@ edward.logInfo = function(job, phone) {
   console.log(`Phone is ${phone}`);
   console.groupEnd();
 };
-edward.greetingWindow();
+//edward.greetingWindow();
 edward.logInfo();
 const ivan = {
   name: 'Ivan',
@@ -135,6 +135,8 @@ edward.logInfo.call(ivan, 'Frontend', '0693456789');
 edward.logInfo.apply(ivan, ['Frontend', '0693456789']);
 ///////////////////////////////////////
 const someArray = [1,2,3,4,5];
-Array.prototype.multBy = function(mult) { return this.map((item) => item * mult);}
+Array.prototype.multBy = function(mult) {
+  return this.map((item) => item * mult);
+}
 console.log(someArray.multBy(5));
 //how to bind context to a arrow function
